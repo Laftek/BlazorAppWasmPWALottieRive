@@ -23,9 +23,9 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish BlazorAppWasmPWALottieRive.csproj -c Release -o release --nologo
     
-    # changes the base-tag in index.html from '/' to 'BlazorWASMPWALottie' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to BlazorWASMPWALottie
-      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorWASMPWALottie\/" \/>/g' release/wwwroot/index.html
+    # changes the base-tag in index.html from '/' to 'BlazorAppWasmPWALottieRive' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to BlazorAppWasmPWALottieRive
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorAppWasmPWALottieRive\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
