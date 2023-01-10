@@ -1,0 +1,8 @@
+﻿namespace BlazorAppWasmPWALottieRive
+{
+    public class NumberingHelper
+    {
+        public int NumberOfAnimationPlayed { get; set; }
+        public int MaxLimit { get; set; }
+    }
+}

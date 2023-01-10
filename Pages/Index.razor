@@ -1,0 +1,90 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime
+@inject NavigationManager navigationManager
+@inject NumberingHelper numberingHelper
+
+<PageTitle>Index</PageTitle>
+<div>
+    <div class="home-container">
+        <div class="home-navbar">
+            <header data-role="Header" class="home-header max-width-container">
+                <span class="navbar-logo-title home-logo-center">ARTURIK</span>
+            </header>
+        </div>
+        <div class="home-hero section-container">
+            <div class="home-max-width max-width-container">
+                <div class="home-hero1">
+                    <div class="home-container1">
+                        <div class="home-info">
+                            <img alt="Rectangle43271305"
+                                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMicgaGVpZ2h0PSc1Micgdmlld0JveD0nMCAwIDIgNTInIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+CjxyZWN0IHdpZHRoPScyJyBoZWlnaHQ9JzUyJyBmaWxsPSdibGFjaycgZmlsbC1vcGFjaXR5PScwLjUnLz4KPC9zdmc+Cg=="
+                                 class="home-image" />
+                            <span class="home-text">
+                                <span>No profit app</span>
+                                <br />
+                                <span>just for fun!</span>
+                                <br />
+                            </span>
+                        </div>
+                        <h1 class="home-text05">
+                            <span>ANIMATIONS</span>
+                            <br />
+                            <span>for KIDS</span>
+                            <br />
+                        </h1>
+                        <input type="text"
+                               placeholder="One play limit"
+                               class="home-textinput input"
+                               @bind=numberingHelper.MaxLimit />
+                        <div class="home-btn-group">
+                            <button class="home-button button" @onclick=@(()=>NavigateToNextAnimation(true))>
+                                Explore animations
+                            </button>
+                        </div>
+                        <div class="home-btn-group1">
+                            <button class="home-button1 button" @onclick=@(()=>NavigateToNextAnimation(false))>
+                                Explore "BALI" the cat
+                            </button>
+                        </div>
+                    </div>
+                    <lottie-player src="lottie/frontPageCatAnimation.json" class="home-image1" speed="1" loop autoplay></lottie-player>
+                </div>
+                <span class="home-text10">
+                    <a href="credit">Credit</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h3>Anim 1</h3>
+<lottie-player src="lottie/frontPageCatAnimation.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+<input @bind=numberingHelper.MaxLimit />Set max limit
+<button type="button" @onclick=@(()=>NavigateToNextAnimation(true))>RANDOM Click me!</button>
+<button type="button" @onclick=@(()=>NavigateToNextAnimation(false))>CAT Click me!</button>*@
+
+@code {
+    public int lottieFileNumber { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        numberingHelper.NumberOfAnimationPlayed = 1;
+        numberingHelper.MaxLimit = 0;
+    }
+
+    public void NavigateToNextAnimation(bool input)
+    {
+        if (numberingHelper.MaxLimit == 0)
+        {
+            numberingHelper.MaxLimit = 10;
+        }
+        if (input)
+        {
+            navigationManager.NavigateTo($"/RandomLottieAnimations/{lottieFileNumber}");
+        }
+        else
+        {
+            navigationManager.NavigateTo($"/CatsLottieAnimations/{lottieFileNumber}");
+        }
+    }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>BlazorAppWasmPWALottieRive</title>
+
+
+    <meta property="og:title" content="Animations" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+        html {
+            line-height: 1.15;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+        }
+
+        p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: transparent;
+        }
+
+        button, input, optgroup, select, textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        button, select {
+            text-transform: none;
+        }
+
+        button, [type="button"], [type="reset"], [type="submit"] {
+            -webkit-appearance: button;
+        }
+
+            button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+                border-style: none;
+                padding: 0;
+            }
+
+            button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus {
+                outline: 1px dotted ButtonText;
+            }
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        input {
+            padding: 2px 4px;
+        }
+
+        img {
+            display: block;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+    </style>
+    <style data-tag="default-style-sheet">
+        /*Copyright 2020 The Jost Project Authors (https://github.com/indestructible-type/Jost)*/
+        @font-face {
+            font-family: 'Jost';
+            src: url('fonts/jost-variablefont_wght-webfont.woff2') format('woff2'), url('fonts/jost-variablefont_wght-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        html {
+            font-family: Jost;
+            font-size: 16px;
+        }
+
+        body {
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: 0.02;
+            line-height: 1.55;
+            color: var(--dl-color-gray-black);
+            background-color: var(--dl-color-gray-white);
+        }
+    </style>
+
+    <base href="/" />
+    <!--<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+          data-tag="font" />-->
+
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/loader.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <link href="BlazorAppWasmPWALottieRive.styles.css" rel="stylesheet" />
+
+    <!-- If you add any scoped CSS files, uncomment the following to load them
+    <link href="BlazorAppWasmPWALottieRive.styles.css" rel="stylesheet" /> -->
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div>
+
+
+            <div class="loader-container">
+                <div class="loader-hero section-container">
+                    <div class="loader-container1">
+                        <img alt="image"
+                             src="loader.svg"
+                             class="loader-image" />
+                        <span class="loader-text">
+                            <span>Please be patient&nbsp;♡</span>
+                            <br />
+                            <span>App is loading...</span>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="scripts/sounds.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+﻿@page "/RandomLottieAnimations/{animNumberOld:int}"
+@inject IJSRuntime JSRuntime
+@inject NavigationManager navigationManager
+@inject NumberingHelper numberingHelper
+<PageTitle>Random lottie animations</PageTitle>
+
+<div>
+    <div class="playing-container">
+        <div class="playing-hero section-container">
+            <div class="playing-max-width max-width-container">
+                <div class="playing-hero1">
+                    <lottie-player class="playing-image" @key=animNumberOld src="\lottie/@lottieFolderName/(@animNumberOld).json" speed="1" loop autoplay></lottie-player>
+                    <div class="playing-container1">
+                        <div class="playing-info">
+                            <span class="playing-text">
+                                <span>@(numberingHelper.MaxLimit - numberingHelper.NumberOfAnimationPlayed + 1) Animations left!</span>
+                                <br />
+                            </span>
+                        </div>
+                        <div class="playing-btn-group">
+                            <audio id="sound" src="/sound/correct.mp3" @onended="SoundIsFinished" />
+                            <button class="playing-button button" id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h3>Anim @animNumberOld</h3>
+<h2>@numberingHelper.NumberOfAnimationPlayed</h2>
+<h1>Animations left:@(numberingHelper.MaxLimit - numberingHelper.NumberOfAnimationPlayed + 1)! </h1>
+<lottie-player @key=animNumberOld src="\lottie/@lottieFolderName/(@animNumberOld).json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+<audio id="sound" src="/sound/correct.mp3" @onended="SoundIsFinished" />
+<button id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">Click me!</button>
+*@
+
+@code {
+    [Parameter]
+    public int animNumberOld { get; set; }
+    public int animNumberNew { get; set; }
+    public bool IsDisabled { get; set; } = false;
+    public int numberOfAnimations { get; set; } = 30;
+    public string lottieFolderName { get; set; } = "RandomLottieAnimations";
+    Random rnd = new Random();
+
+    public void SoundIsFinished()
+    {
+        IsDisabled = false;
+    }
+
+    public async Task PlaySound()
+    {
+        IsDisabled = true;
+        await JSRuntime.InvokeAsync<string>("PlayAudio", "sound");
+        animNumberNew = rnd.Next(1, numberOfAnimations);
+        while (animNumberOld == animNumberNew)
+        {
+            animNumberNew = rnd.Next(1, numberOfAnimations);
+        }
+        numberingHelper.NumberOfAnimationPlayed++;
+        NavigateToNextAnimation();
+    }
+
+    public void NavigateToNextAnimation()
+    {
+        if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
+        {
+            navigationManager.NavigateTo("/");
+        }
+        else
+        {
+            navigationManager.NavigateTo($"/{lottieFolderName}/{animNumberNew}");
+        }
+    }
+}
