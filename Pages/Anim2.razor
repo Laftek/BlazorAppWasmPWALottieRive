@@ -59,7 +59,7 @@
     {
         if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
         {
-            navigationManager.NavigateTo("/");
+            navigationManager.NavigateTo($"{@navigationManager.BaseUri}/");
         }
         else
         {
