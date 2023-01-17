@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-JMUu3cfq23KuxNHGoPCLdFv5A88cXvuETmk9EGOm9\/E=",
+      "hash": "sha256-Qz2qkD8rBd5BWFXrSIURzJzQv2ba9KhLZQR3bhupxAU=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-XyhOdQvDtDDL\/LkxjiOSxKRO6ioVaLb4+Tm39XKCnz8=",
+      "hash": "sha256-tGYUHKHmaY1uSOzrL7lfplsUTJZDwq5F3G4nwW+McQ4=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -349,7 +349,7 @@
       "url": "lottie\/RandomLottieAnimations\/(9).json"
     },
     {
-      "hash": "sha256-kjAc8IdHxZVEJ30rR\/paiZ8ACMUs8ZOiSxQ2ZX7SnJM=",
+      "hash": "sha256-22pHVlks54nek3nLBTa5vOYW24FaEHTV55UJWGhJCj4=",
       "url": "manifest.json"
     },
     {
@@ -361,5 +361,5 @@
       "url": "sound\/correct.mp3"
     }
   ],
-  "version": "pnsZqBOK"
+  "version": "PIEXOcX+"
 };
