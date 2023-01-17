@@ -181,6 +181,10 @@
       "url": "fonts\/stylesheet.css"
     },
     {
+      "hash": "sha256-DbpQaq68ZSb5IoPosBErM1QWBfsbTxpJqhU0REi6wP4=",
+      "url": "icon-192.png"
+    },
+    {
       "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
       "url": "icon-512.png"
     },
@@ -357,5 +361,5 @@
       "url": "sound\/correct.mp3"
     }
   ],
-  "version": "P6e9wmAu"
+  "version": "pnsZqBOK"
 };
