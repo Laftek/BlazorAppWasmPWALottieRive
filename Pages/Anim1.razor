@@ -18,7 +18,7 @@
                             </span>
                         </div>
                         <div class="playing-btn-group">
-                            <audio id="sound" src="/sound/correct.mp3" @onended="SoundIsFinished" />
+                            <audio id="sound" src="@navigationManager.BaseUri/sound/correct.mp3" @onended="SoundIsFinished" />
                             <button class="playing-button button" id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
                         </div>
                     </div>
