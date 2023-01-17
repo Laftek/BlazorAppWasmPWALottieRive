@@ -9,7 +9,7 @@
         <div class="playing-hero section-container">
             <div class="playing-max-width max-width-container">
                 <div class="playing-hero1">
-                    <lottie-player class="playing-image" @key=animNumberOld src="\lottie/@lottieFolderName/(@animNumberOld).json" speed="1" loop autoplay></lottie-player>
+                    <lottie-player class="playing-image" @key=animNumberOld src="@navigationManager.BaseUri/lottie/@lottieFolderName/(@animNumberOld).json" speed="1" loop autoplay></lottie-player>
                     <div class="playing-container1">
                         <div class="playing-info">
                             <span class="playing-text">
@@ -27,14 +27,6 @@
         </div>
     </div>
 </div>
-
-@*<h3>Anim @animNumberOld</h3>
-<h2>@numberingHelper.NumberOfAnimationPlayed</h2>
-<h1>Animations left:@(numberingHelper.MaxLimit - numberingHelper.NumberOfAnimationPlayed + 1)! </h1>
-<lottie-player @key=animNumberOld src="\lottie/@lottieFolderName/(@animNumberOld).json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
-<audio id="sound" src="/sound/correct.mp3" @onended="SoundIsFinished" />
-<button id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">Click me!</button>
-*@
 
 @code {
     [Parameter]
@@ -71,7 +63,7 @@
         }
         else
         {
-            navigationManager.NavigateTo($"/{lottieFolderName}/{animNumberNew}");
+            navigationManager.NavigateTo($"{lottieFolderName}/{animNumberNew}");
         }
     }
 }
