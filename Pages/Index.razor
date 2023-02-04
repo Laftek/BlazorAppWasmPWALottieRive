@@ -2,8 +2,7 @@
 @inject IJSRuntime JSRuntime
 @inject NavigationManager navigationManager
 @inject NumberingHelper numberingHelper
-
-<PageTitle>Index</PageTitle>
+<PageTitle>Main Page</PageTitle>
 <div>
     <div class="home-container">
         <div class="home-navbar">
@@ -53,28 +52,31 @@
         </div>
     </div>
 </div>
-
 @code {
     public int lottieFileNumber { get; set; } = 1;
-
     protected override void OnInitialized()
     {
+        // initialize the NumberOfAnimationPlayed with value 1
         numberingHelper.NumberOfAnimationPlayed = 1;
+        // initialize the MaxLimit with value 0
         numberingHelper.MaxLimit = 0;
     }
-
     public void NavigateToNextAnimation(bool input)
     {
+        // check if MaxLimit is 0, set it to 10
         if (numberingHelper.MaxLimit == 0)
         {
             numberingHelper.MaxLimit = 10;
         }
+        // check if input is true
         if (input)
         {
+            // navigate to the URL with random animation and the file number
             navigationManager.NavigateTo($"RandomLottieAnimations/{lottieFileNumber}");
         }
         else
         {
+            // navigate to the URL with cat animation and the file number
             navigationManager.NavigateTo($"CatsLottieAnimations/{lottieFileNumber}");
         }
     }
