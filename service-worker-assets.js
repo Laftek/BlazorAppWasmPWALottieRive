@@ -257,11 +257,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-3jRcEoCtMjljhl\/kGkEM1EKfMeh9baRr1a77yRMnxdQ=",
+      "hash": "sha256-Wjxt92moHmjNJpb+dxUprq7wzlxHMUWPMFWux77w7ms=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-5ngJUwHNzcWkzTHLGVTQuEavRf4meUQCLXtKVCuBmw0=",
+      "hash": "sha256-lu9peXAhZwrTaA5gru9vEPAP7ZShQvxP4nT+sp+nhqg=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -389,5 +389,5 @@
       "url": "_content\/Toolbelt.Blazor.PWA.Updater\/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
     }
   ],
-  "version": "vkq6vrp6"
+  "version": "xr\/Y40MO"
 };
