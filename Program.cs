@@ -9,7 +9,6 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddSingleton<NumberingHelper>();
-builder.Services.AddSingleton<IPWAUpdaterService>();
 builder.Services.AddPWAUpdater();
 await builder.Build().RunAsync();
 //Copyright © 2021 Design Barn Inc.

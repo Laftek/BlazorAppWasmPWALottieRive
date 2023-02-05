@@ -1,11 +1,14 @@
-﻿@using Toolbelt.Blazor.PWA.Updater.Service
+﻿@using Toolbelt.Blazor.PWA.Updater.Service;
 @inject IPWAUpdaterService PWAUpdaterService
 @inject NumberingHelper numberingHelper
 @implements IDisposable
 
+@if(isUpdateReady){
 <div class="home1-update-now">
     <button @onclick="OnClickUpdateNowAsync" class="button-17">UPDATE APP TO NEW VERSION</button>
 </div>
+}
+
 
 <style>
     .home1-update-now {
@@ -89,6 +92,8 @@
 </style>
 
 @code {
+    public bool isUpdateReady { get; set; } = false;
+
     protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender)
@@ -98,7 +103,7 @@
     }
     private void PWAUpdaterService_NextVersionIsWaiting(object sender, EventArgs e)
     {
-       numberingHelper.isUpdateReady = true;
+       isUpdateReady = true;
     }
 
     private async Task OnClickUpdateNowAsync()
