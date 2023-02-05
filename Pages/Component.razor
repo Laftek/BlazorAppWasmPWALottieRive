@@ -93,8 +93,12 @@
     {
         if (firstRender)
         {
-            this.PWAUpdaterService.NextVersionIsWaiting += numberingHelper.PWAUpdaterService_NextVersionIsWaiting;
+            this.PWAUpdaterService.NextVersionIsWaiting += PWAUpdaterService_NextVersionIsWaiting;
         }
+    }
+    private void PWAUpdaterService_NextVersionIsWaiting(object sender, EventArgs e)
+    {
+       numberingHelper.isUpdateReady = true;
     }
 
     private async Task OnClickUpdateNowAsync()
@@ -104,7 +108,7 @@
 
     void IDisposable.Dispose()
     {
-        this.PWAUpdaterService.NextVersionIsWaiting -= numberingHelper.PWAUpdaterService_NextVersionIsWaiting;
+        this.PWAUpdaterService.NextVersionIsWaiting -= PWAUpdaterService_NextVersionIsWaiting;
 
     }
 }
