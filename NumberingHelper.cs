@@ -7,9 +7,12 @@
         public IEnumerable<int>? LottieAnimList { get; set; }
         public bool isUpdateReady { get; set; } = false;
 
-        public void ShowUpdateButton()
+
+        public void PWAUpdaterService_NextVersionIsWaiting(object sender, EventArgs e)
         {
+            // Add your logic here to show the notification to the users
             isUpdateReady = true;
+            
         }
     }
 }

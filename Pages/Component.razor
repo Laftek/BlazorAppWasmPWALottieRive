@@ -93,7 +93,7 @@
     {
         if (firstRender)
         {
-            this.PWAUpdaterService.NextVersionIsWaiting += (sender, args) => numberingHelper.ShowUpdateButton();
+            this.PWAUpdaterService.NextVersionIsWaiting += numberingHelper.PWAUpdaterService_NextVersionIsWaiting;
         }
     }
 
@@ -104,6 +104,7 @@
 
     void IDisposable.Dispose()
     {
-        this.PWAUpdaterService.NextVersionIsWaiting -= (sender, args) => numberingHelper.ShowUpdateButton();
+        this.PWAUpdaterService.NextVersionIsWaiting -= numberingHelper.PWAUpdaterService_NextVersionIsWaiting;
+
     }
 }
