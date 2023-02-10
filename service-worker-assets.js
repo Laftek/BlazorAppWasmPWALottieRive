@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-nRPXQwGq\/mFymKzUKdw56nkW3QxZROTY3G4CEBNbnts=",
+      "hash": "sha256-yVukE976VAFwaQ9Jm78rvUDpFOPs+RCs5poRW8K1hCw=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-ltS7l91LIovKzUuvF44Q4XfMRPyYi7znY3epEM1e29Q=",
+      "hash": "sha256-ni9CJz7xPLHyT0pkEUyymKkxH8ebzvIySHCFBKLod6U=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -189,7 +189,7 @@
       "url": "fonts\/stylesheet.css"
     },
     {
-      "hash": "sha256-0Zc0e5N7y0vsjIc8dqhxzgJtxx9b4ap9PeNfnHILknA=",
+      "hash": "sha256-exVCynXFdgLB9FhQmL63Ia6SkAFtOCFJS6RdEvt2eDE=",
       "url": "icon-192.png"
     },
     {
@@ -377,5 +377,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "qG37K9HX"
+  "version": "8Tog5bo5"
 };
