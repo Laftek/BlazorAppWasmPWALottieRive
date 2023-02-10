@@ -373,9 +373,9 @@
       "url": "sound\/correct.mp3"
     },
     {
-      "hash": "sha256-VcgWn0gD2TE2lFm\/k+mTtVwpyjRISmqGbdH1mfX9mS0=",
+      "hash": "sha256-EV+VjMGX68haBSmHEW3rOmtcYYmrVjUi4qODPaYo\/Tw=",
       "url": "sw-registrator.js"
     }
   ],
-  "version": "PaurgWBC"
+  "version": "vxJ9VsJV"
 };
