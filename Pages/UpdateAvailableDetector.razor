@@ -1,15 +1,10 @@
-﻿@using Toolbelt.Blazor.PWA.Updater.Service;
-@inject IPWAUpdaterService PWAUpdaterService
-@inject NumberingHelper numberingHelper
-@implements IDisposable
-
-@if(isUpdateReady){
-<div class="home1-update-now">
-    <button @onclick="OnClickUpdateNowAsync" class="button-17">UPDATE APP TO NEW VERSION</button>
-</div>
+﻿@inject IJSRuntime _jsRuntime
+@if (_newVersionAvailable)
+{
+    <div class="home1-update-now">
+        <button type="button" onclick="window.location.reload()" class="button-17">UPDATE APP TO NEW VERSION</button>
+    </div>
 }
-
-
 <style>
     .home1-update-now {
         flex: 0 0 auto;
@@ -54,66 +49,52 @@
         will-change: transform,opacity;
         z-index: 0;
     }
-
         .button-17:hover {
             background: #F6F9FE;
             color: #174ea6;
         }
-
         .button-17:active {
             box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
             outline: none;
         }
-
         .button-17:focus {
             outline: none;
             border: 2px solid #4285f4;
         }
-
         .button-17:not(:disabled) {
             box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
         }
-
             .button-17:not(:disabled):hover {
                 box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
             }
-
             .button-17:not(:disabled):focus {
                 box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
             }
-
             .button-17:not(:disabled):active {
                 box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
             }
-
         .button-17:disabled {
             box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
         }
 </style>
-
 @code {
-    public bool isUpdateReady { get; set; } = false;
-
-    protected override void OnAfterRender(bool firstRender)
+    private bool _newVersionAvailable = false;
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
-            this.PWAUpdaterService.NextVersionIsWaiting += PWAUpdaterService_NextVersionIsWaiting;
-        }
+        await RegisterForUpdateAvailableNotification();
     }
-    private void PWAUpdaterService_NextVersionIsWaiting(object sender, EventArgs e)
+    private async Task RegisterForUpdateAvailableNotification()
     {
-       isUpdateReady = true;
+        await _jsRuntime.InvokeAsync<object>(
+            identifier: "registerForUpdateAvailableNotification",
+            DotNetObjectReference.Create(this),
+            nameof(OnUpdateAvailable));
     }
-
-    private async Task OnClickUpdateNowAsync()
+    [JSInvokable(nameof(OnUpdateAvailable))]
+    public Task OnUpdateAvailable()
     {
-        await this.PWAUpdaterService.SkipWaitingAsync();
-    }
-
-    void IDisposable.Dispose()
-    {
-        this.PWAUpdaterService.NextVersionIsWaiting -= PWAUpdaterService_NextVersionIsWaiting;
-
+        _newVersionAvailable = true;
+        StateHasChanged();
+        return Task.CompletedTask;
     }
 }

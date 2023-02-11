@@ -9,7 +9,6 @@
             <header data-role="Header" class="home-header max-width-container">
                 <span class="navbar-logo-title home-logo-center">ARTURIK</span>
             </header>
-
         </div>
         <div class="home-hero section-container">
             <div class="home-max-width max-width-container">
@@ -27,7 +26,6 @@
                             <span>ANIMATIONS</span>
                             <br />
                             <span>for KIDS</span>
-
                             <br />
                         </h1>
                         <input type="text"
@@ -36,7 +34,7 @@
                                @bind=numberingHelper.MaxLimit />
                         <div class="home-btn-group">
                             <button class="home-button button" @onclick=@(()=>NavigateToNextAnimation(true))>
-                                Explore animations Test4
+                                Explore animations
                             </button>
                         </div>
                         <div class="home-btn-group1">
@@ -50,16 +48,10 @@
                 <span class="home-text10">
                     <a href="credit">Credit</a>
                 </span>
-                
-                
-                <Component></Component>
-                    
-                
+                <UpdateAvailableDetector></UpdateAvailableDetector>
             </div>
         </div>
     </div>
-            
- 
 </div>
 @code {
     public int lottieFileNumber { get; set; } = 1;
@@ -89,5 +81,4 @@
             navigationManager.NavigateTo($"CatsLottieAnimations/{lottieFileNumber}");
         }
     }
-
 }
