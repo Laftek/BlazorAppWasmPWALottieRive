@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-W9ykU+VOqXXUwuQCWNJL3uh1gNylD5JWhwDmiC5rAN0=",
+      "hash": "sha256-lGvj\/F\/qyHG7bgMdy2BBgyB8Z\/W5BgyOqcpCIpnATkc=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-EW6EH8YfVezQ9FN098DUM1AbN\/QTB8PP+ULuu\/+B0iA=",
+      "hash": "sha256-g8iET6EBlsSLW0sIWTDWHkkd5NQAzcYvCf4mX8wM1Ek=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -153,14 +153,6 @@
       "url": "BlazorAppWasmPWALottieRive.styles.css"
     },
     {
-      "hash": "sha256-VmbSkTbCGAZT\/s4MIuuZUd1kjYOUXcymy6rqVqe5ISM=",
-      "url": "Pages\/Anim1.razor.js"
-    },
-    {
-      "hash": "sha256-VmbSkTbCGAZT\/s4MIuuZUd1kjYOUXcymy6rqVqe5ISM=",
-      "url": "Pages\/Anim2.razor.js"
-    },
-    {
       "hash": "sha256-toSzdvGFbmPlKhrjyw6pCp\/E\/1vIJkivhOC8RHTbwlw=",
       "url": "css\/app.css"
     },
@@ -197,7 +189,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-o8dPMRs6wDUnyHDseDtpUlN2C34R2/Ah6l309qB46dQ=",
+      "hash": "sha256-0gMKLQmodjDtxUBx+EKejAcDSZwADJUqJqNYJIgFDKo=",
       "url": "index.html"
     },
     {
@@ -365,8 +357,8 @@
       "url": "scripts\/lottie-player.js"
     },
     {
-      "hash": "sha256-vKBYl6uo8sxMqvmZyZvMhr0KSJP2h0cPgSW2aJgSvZs=",
-      "url": "scripts\/sounds.js"
+      "hash": "sha256-VmbSkTbCGAZT\/s4MIuuZUd1kjYOUXcymy6rqVqe5ISM=",
+      "url": "scripts\/sound.js"
     },
     {
       "hash": "sha256-8o9vZfPcltVAPrRfONjxIKoJOhATpgCF7o23FGDVniw=",
@@ -377,5 +369,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "+gy+Tdga"
+  "version": "+6bi5a5E"
 };
