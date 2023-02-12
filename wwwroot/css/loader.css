@@ -1,56 +1,59 @@
 .loader-container {
-  width: 100%;
-  display: flex;
-  overflow: auto;
-  min-height: 100vh;
-  align-items: center;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
 }
 .loader-hero {
-  height: 100%;
-  min-height: 100vh;
-  padding-top: var(--dl-space-space-threeunits);
-  padding-bottom: var(--dl-space-space-threeunits);
-  background-color: var(--dl-color-pallet-green);
+    height: 100%;
+    position: relative;
+    min-height: 100vh;
+    padding-top: var(--dl-space-space-threeunits);
+    padding-bottom: var(--dl-space-space-threeunits);
+    background-color: var(--dl-color-pallet-green);
 }
 .loader-container1 {
-  flex: 0 0 auto;
-  width: 200px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+    flex: 0 0 auto;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
 }
 .loader-image {
-  width: 100px;
-  align-self: center;
-  object-fit: cover;
+    width: 100px;
+    align-self: center;
+    object-fit: cover;
 }
 .loader-text {
-  align-self: center;
-  margin-top: var(--dl-space-space-halfunit);
-  text-align: center;
+    margin: var(--dl-space-space-unit);
+    align-self: center;
+    text-align: center;
 }
 @media(max-width: 767px) {
-  .loader-hero {
-    padding-top: var(--dl-space-space-unit);
-    padding-bottom: var(--dl-space-space-unit);
-  }
+    .loader-hero {
+        padding-top: var(--dl-space-space-unit);
+        padding-bottom: var(--dl-space-space-unit);
+    }
 }
 @media(max-width: 479px) {
-  .loader-hero {
-    height: 100%;
-    min-height: 100vh;
-  }
-  .loader-container1 {
-    align-items: center;
-    justify-content: center;
-  }
-  .loader-image {
-    align-self: center;
-  }
-  .loader-text {
-    align-self: center;
-    margin-top: var(--dl-space-space-halfunit);
-    text-align: center;
-  }
+    .loader-hero {
+        height: 100%;
+        min-height: 100vh;
+    }
+    .loader-container1 {
+        justify-content: center;
+    }
+    .loader-image {
+        align-self: center;
+    }
+    .loader-text {
+        margin: var(--dl-space-space-unit);
+        align-self: center;
+        text-align: center;
+    }
+    .loader-code-embed {
+        align-self: center;
+    }
 }

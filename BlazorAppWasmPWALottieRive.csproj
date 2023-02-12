@@ -6,6 +6,7 @@
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 	</PropertyGroup>
 	<ItemGroup>
+	  <None Remove="Pages\Anim1 - Copy.razor.js" />
 	  <None Remove="Pages\Anim1.razor.js" />
 	  <None Remove="Pages\Anim2.razor.js" />
 	</ItemGroup>

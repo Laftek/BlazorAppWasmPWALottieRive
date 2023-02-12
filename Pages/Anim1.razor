@@ -70,36 +70,33 @@
         // navigate to the root page
         if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
         {
+            // Dispose the JavaScript wrapper
+            await DisposeAsync();
             // TODO: Handle the case where animNumber index is 0, which is causing an error
             navigationManager.NavigateTo($"{@navigationManager.BaseUri}/");
         }
         else
         {
-            // Dispose the JavaScript wrapper
-            await DisposeAsync();
             // Otherwise, navigate to the next animation
             navigationManager.NavigateTo($"{lottieFolderName}/{animNumber}");
+            await jsWrapper.InvokeVoidAsync("loadAudio");
         }
     }
     // Initialize the LottieAnimList property with a list of integers from 1 to NumberOfLotties
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         {
             numberingHelper.LottieAnimList = Enumerable.Range(1, NumberOfLotties);
+            jsWrapper = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Anim1.razor.js");
+            await jsWrapper.InvokeVoidAsync("loadAudioFirstTime");
         }
-    }
-    // On After Render, import the .razor.js file and call its loadAudio method
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        jsWrapper = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Anim1.razor.js");
-        await jsWrapper.InvokeVoidAsync("loadAudio");
     }
     // Method to dispose the audio and dispose the jsWrapper
     public async ValueTask DisposeAsync()
     {
         if (jsWrapper != null)
         {
-            await jsWrapper.InvokeVoidAsync("disposeAudio");
+            //await jsWrapper.InvokeVoidAsync("disposeAudio");
             await jsWrapper.DisposeAsync();
         }
     }
