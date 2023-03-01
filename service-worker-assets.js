@@ -181,7 +181,7 @@
       "url": "fonts\/stylesheet.css"
     },
     {
-      "hash": "sha256-exVCynXFdgLB9FhQmL63Ia6SkAFtOCFJS6RdEvt2eDE=",
+      "hash": "sha256-tfcQayeGO3VauWN0QxM2rDD83oDBYtCncLWgLhVZqw0=",
       "url": "icon-192.png"
     },
     {
@@ -373,5 +373,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "iFINJIew"
+  "version": "MJHC4Kbl"
 };
