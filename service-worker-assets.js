@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-ev5o2UbS\/XG1aR5wOosYhD0kNzwI\/BSqqLNE9bdd2HM=",
+      "hash": "sha256-rsFR\/SqZrPKa1573g6DrYqPI5Mpazwt5TezC8R66Ndo=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-l0QIaWRqJbMaQMspc4viJSFh6vs8d6aGiMJxvTtrVX8=",
+      "hash": "sha256-43y49nHOEFZ+HYAnhllYe05JDBRCw3FKjhZjEd23fUA=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -149,7 +149,7 @@
       "url": "_framework\/System.Text.Json.dll"
     },
     {
-      "hash": "sha256-UvEoDLbNMDC5eQYhpRuLOKIZMCcdWuD89tK5Qa\/waNc=",
+      "hash": "sha256-hDco+ZOrUacnOJ6BToIFhyF8BXxusSKPXS5RGg0x8r8=",
       "url": "BlazorAppWasmPWALottieRive.styles.css"
     },
     {
@@ -353,7 +353,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-TFM\/NhgqABG7Pl5guqd72uzk3F+9e8FR98QT2wHM3MY=",
+      "hash": "sha256-JQ9DkCfSR5OLkOk2VRbVCSMQ8jp6oPdeQVfss5D4euA=",
       "url": "scripts\/disableElasticScroll.js"
     },
     {
@@ -373,5 +373,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "MJHC4Kbl"
+  "version": "4KAAZXGO"
 };
