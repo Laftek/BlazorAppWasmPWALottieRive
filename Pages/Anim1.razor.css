@@ -106,7 +106,7 @@
         text-transform: uppercase;
     }
 
-    .playing-button {
+/*    .playing-button {
         color: rgba(255, 255, 255, 0.8);
         width: auto;
         height: auto;
@@ -120,5 +120,21 @@
         padding-right: var(--dl-space-space-threeunits);
         padding-bottom: var(--dl-space-space-oneandhalfunits);
         background-color: rgb(72, 214, 47);
+    }*/
+    .playing-button {
+        border: 2px solid #7ac70c;
+        border-bottom-width: 6px;
+        border-radius: 10px;
+        padding: 20px 30px;
+        background-color: #8ee000;
+        color: #fff;
+        font-size: 25px;
+        cursor: pointer;
+        outline: none;
+        transition: .07s;
     }
+        .playing-button:active {
+            border-bottom-width: 2px;
+            margin-top: 4px;
+        }
 }

@@ -11,3 +11,10 @@ export function enableElasticScroll() {
         touchMoveListener = null;
     }
 }
+
+//var myButton = document.getElementById("soundButton");
+
+//myButton.addEventListener("mouseup", function (event) {
+//    // Do something when the button is released
+//    console.log("Button released!");
+//});

@@ -22,7 +22,7 @@
                     <br />
                 </span>
                 <audio id="audioElement" />
-                <button class="playing-button button" id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
+                <button class="playing-button button" id="soundButton"  @onpointerup="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
         // Invoke the playAudio method of the JavaScript wrapper
         await jsWrapper.InvokeVoidAsync("playAudio");
         // Wait for 1 second
-        await Task.Delay(750);
+        //await Task.Delay(750);
         // Enable the component
         IsDisabled = false;
         // Select a random animation number from the list of animation numbers
