@@ -6,23 +6,22 @@
 <PageTitle>Cats lottie animations</PageTitle>
 <div>
     <div class="playing-container">
-        <div class="playing-hero section-container">
+        <div class="section-container playing-hero">
+            <div @onclick="GoToMainPage" class="playing-container1">
+                <svg viewBox="0 0 1024 1024" class="playing-icon">
+                    <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
+                </svg>
+            </div>
             <div class="playing-max-width max-width-container">
-                <div class="playing-hero1">
-                    <lottie-player style="width: 300px; height: 300px;" @key=animNumber src="@navigationManager.BaseUri/lottie/@lottieFolderName/(@animNumber).json" speed="1" loop autoplay></lottie-player>
-                    <div class="playing-container1">
-                        <div class="playing-info">
-                            <span class="playing-text">
-                                <span>@(numberingHelper.MaxLimit - numberingHelper.NumberOfAnimationPlayed + 1) Animations left!</span>
-                                <br />
-                            </span>
-                        </div>
-                        <div class="playing-btn-group">
-                            <audio id="audioElement" />
-                            <button class="playing-button button" id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
-                        </div>
-                    </div>
-                </div>
+                <lottie-player style="width: 300px; height: 300px;" @key=animNumber src="@navigationManager.BaseUri/lottie/@lottieFolderName/(@animNumber).json" speed="1" loop autoplay></lottie-player>
+            </div>
+            <div class="ContainernextAnimationButton playing-container2">
+                <span class="playing-text">
+                    <span>@(numberingHelper.MaxLimit - numberingHelper.NumberOfAnimationPlayed + 1) Animations left!</span>
+                    <br />
+                </span>
+                <audio id="audioElement" />
+                <button class="playing-button button" id="soundButton" @onclick="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
             </div>
         </div>
     </div>
@@ -35,7 +34,17 @@
                                                   // TODO: This number should be loaded from the folder by reading the names of the animations
     public string lottieFolderName { get; set; } = "CatsLottieAnimations"; // Name of the folder where the animations are stored
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
-                                                // Method to play the sound of the current animation
+    IJSObjectReference? jsDisableElasticScroll { get; set; } // Reference to the JavaScript wrapper
+                                                             // Go back to main page
+    public async Task GoToMainPage()
+    {
+        await jsDisableElasticScroll.InvokeVoidAsync("enableElasticScroll");
+        // Dispose the JavaScript wrapper
+        await DisposeAsync();
+        // TODO: Handle the case where animNumber index is 0, which is causing an error
+        navigationManager.NavigateTo($"{@navigationManager.BaseUri}/");
+    }
+    // Method to play the sound of the current animation
     public async Task PlaySound()
     {
         // Remove the current animation number from the list of animation numbers
@@ -70,10 +79,7 @@
         // navigate to the root page
         if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
         {
-            // Dispose the JavaScript wrapper
-            await DisposeAsync();
-            // TODO: Handle the case where animNumber index is 0, which is causing an error
-            navigationManager.NavigateTo($"{@navigationManager.BaseUri}/");
+            await GoToMainPage();
         }
         else
         {
@@ -87,18 +93,22 @@
     {
         {
             string pathToSoundJs = $"{navigationManager.BaseUri}/scripts/sound.js";
+            string pathToDisableElasticScrollJs = $"{navigationManager.BaseUri}/scripts/disableElasticScroll.js";
             jsWrapper = await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathToSoundJs);
-            numberingHelper.LottieAnimList = Enumerable.Range(1, NumberOfLotties);
+            jsDisableElasticScroll = await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathToDisableElasticScrollJs);
             await jsWrapper.InvokeVoidAsync("loadAudioFirstTime");
+            await jsDisableElasticScroll.InvokeVoidAsync("disableElasticScroll");
+            numberingHelper.LottieAnimList = Enumerable.Range(1, NumberOfLotties);
         }
     }
     // Method to dispose the audio and dispose the jsWrapper
     public async ValueTask DisposeAsync()
     {
-        if (jsWrapper != null)
+        if (jsWrapper != null || jsDisableElasticScroll != null)
         {
-            // await jsWrapper.InvokeVoidAsync("disposeAudio");
+            //await jsWrapper.InvokeVoidAsync("disposeAudio");
             await jsWrapper.DisposeAsync();
+            await jsDisableElasticScroll.DisposeAsync();
         }
     }
 }
