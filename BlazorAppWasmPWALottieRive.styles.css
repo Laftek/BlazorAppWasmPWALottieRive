@@ -133,6 +133,7 @@
         cursor: pointer;
         outline: none;
         transition: .07s;
+        -webkit-tap-highlight-color: transparent;
     }
         .playing-button:active[b-ut6sh94stz] {
             border-bottom-width: 2px;
@@ -274,6 +275,7 @@
         cursor: pointer;
         outline: none;
         transition: .07s;
+        -webkit-tap-highlight-color: transparent;
     }
 
         .playing-button:active[b-bxncxxn6qa] {
