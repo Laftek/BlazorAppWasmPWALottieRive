@@ -48,6 +48,10 @@
                 <span class="home-text10">
                     <a href="credit">Credit</a>
                 </span>
+                @if (isHomeScreenRecommendationDisplayed)
+                {
+                    <span>TESTING</span>
+                }
                 <UpdateAvailableDetector></UpdateAvailableDetector>
             </div>
         </div>
@@ -55,6 +59,15 @@
 </div>
 @code {
     public int lottieFileNumber { get; set; } = 1;
+    private static bool isHomeScreenRecommendationDisplayed = false;
+
+    [JSInvokable]
+    public static void ShowHomeScreenRecommendation(bool isStandalone)
+    {
+        isHomeScreenRecommendationDisplayed = isStandalone;
+    }
+
+    
     protected override void OnInitialized()
     {
         // initialize the NumberOfAnimationPlayed with value 1
