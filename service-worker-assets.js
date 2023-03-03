@@ -353,7 +353,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-8V1vJKpZ6QXxkbgVs7QmFZesw6AnnsUIfuxJOFhoMRo=",
+      "hash": "sha256-e19o3AQQJj7v78yakG1OYCmS283+q6sBPo48HW2QlWQ=",
       "url": "scripts\/detectionPWA.js"
     },
     {
@@ -377,5 +377,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "qHB6COxu"
+  "version": "BwRia11D"
 };
