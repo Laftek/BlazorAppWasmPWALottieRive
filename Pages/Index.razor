@@ -67,7 +67,15 @@
         isHomeScreenRecommendationDisplayed = isStandalone;
     }
 
-    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            string pathTodetectionPWAJs = $"{navigationManager.BaseUri}/scripts/detectionPWA.js";
+            await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathTodetectionPWAJs);
+
+        }
+    }
     protected override void OnInitialized()
     {
         // initialize the NumberOfAnimationPlayed with value 1
