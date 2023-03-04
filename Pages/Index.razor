@@ -48,9 +48,9 @@
                 <span class="home-text10">
                     <a href="credit">Credit</a>
                 </span>
-                @if (isHomeScreenRecommendationDisplayed)
+                @if (displayModeDetection is not null)
                 {
-                    <span>TESTING</span>
+                    <span>@displayModeDetection</span>
                 }
                 <UpdateAvailableDetector></UpdateAvailableDetector>
             </div>
@@ -59,20 +59,30 @@
 </div>
 @code {
     public int lottieFileNumber { get; set; } = 1;
-    private static bool isHomeScreenRecommendationDisplayed = false;
+    private bool isHomeScreenRecommendationDisplayed = false;
+    IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
+    public string displayModeDetection { get; set; }
 
-    [JSInvokable]
-    public static void ShowHomeScreenRecommendation(bool isStandalone)
-    {
-        isHomeScreenRecommendationDisplayed = isStandalone;
-    }
+
+    //[JSInvokable]
+    //public static void ShowHomeScreenRecommendation(bool isStandalone)
+    //{
+    //    isHomeScreenRecommendationDisplayed = isStandalone;
+    //}
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             string pathTodetectionPWAJs = $"{navigationManager.BaseUri}/scripts/detectionPWA.js";
-            await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathTodetectionPWAJs);
+            jsWrapper = await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathTodetectionPWAJs);
+            displayModeDetection = await jsWrapper.InvokeAsync<string>("checkDisplayMode");
+            StateHasChanged();
+
+            //await jsWrapper.InvokeVoidAsync("isStandalone");
+            //isHomeScreenRecommendationDisplayed = await jsWrapper.InvokeAsync<bool>("isStandalone");
+
+            //await jsWrapper.InvokeVoidAsync("detectionPWA");
 
         }
     }
