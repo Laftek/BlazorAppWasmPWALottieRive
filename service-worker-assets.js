@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-\/DpAOHMroqrKoANV2R93vBF+CatnoQ4R4+dH5HndMIQ=",
+      "hash": "sha256-eIBNhQwvIfQb1PMbeNaKh5he5+h2L2JinIEq831OByE=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-3j\/4VXlL1apQR5d6UDop83b65UyDoBUpg3YSWnOqBh4=",
+      "hash": "sha256-0Xz7yhd+OrJ77MD3UEpax5vCii4lstBtenzB9FRldz0=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -89,7 +89,7 @@
       "url": "_framework\/Microsoft.Extensions.Primitives.dll"
     },
     {
-      "hash": "sha256-KnwOZIbbEsohnvCGve4h1hg6Bbb0NBb93p6MFMDURXE=",
+      "hash": "sha256-0TCLnxQ3Hn7ussunvjSm7fxeGjwgDWArOJtQ7BKX4Sk=",
       "url": "_framework\/Microsoft.JSInterop.dll"
     },
     {
@@ -189,7 +189,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-U5OEDTNTrQ5hjZw66tMalgyy4BrzZzNhkhpjAM69ELU=",
+      "hash": "sha256-vh919DtoCZTZgA+Mh4LatfWvS5l+dwTbgUvFzG+lq7s=",
       "url": "index.html"
     },
     {
@@ -353,7 +353,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-q0IOGCPK2RmCAUEVG2axas9YLTSAZkJpFmWeXN6AF3A=",
+      "hash": "sha256-Tcf6\/6\/5UvugOdZOiF2L\/Mtvb3AkhObstp4o+Xez0QY=",
       "url": "scripts\/detectionPWA.js"
     },
     {
@@ -377,5 +377,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "0v0qOOZy"
+  "version": "teIF91yy"
 };

@@ -1,15 +1,21 @@
-﻿window.addEventListener('DOMContentLoaded', () => {
-    let displayMode = 'browser tab';
+﻿export function checkDisplayMode() {
     if (window.matchMedia('(display-mode: standalone)').matches) {
-        displayMode = 'standalone';
-        console.log('Before method call');
-        DotNet.invokeMethodAsync('BlazorAppWasmPWALottieRive', 'ShowHomeScreenRecommendation', true);
-        console.log('After method call');
-
+        console.log('Standalone mode');
+        return 'standalone';
+    } else if (window.matchMedia('(display-mode: minimal-ui)').matches) {
+        console.log('Minimal UI mode');
+        return 'minimal-ui';
+    } else if (window.matchMedia('(display-mode: fullscreen)').matches) {
+        console.log('Fullscreen mode');
+        return 'fullscreen';
+    } else if (window.matchMedia('(display-mode: browser)').matches) {
+        console.log('Browser mode');
+        return 'browser';
+    } else if (window.matchMedia('(display-mode: browser tab)').matches) {
+        console.log('Browser tab mode');
+        return 'browser tab';
+    } else {
+        console.log('Unknown mode');
+        return 'unknown';
     }
-    // Log launch display mode to analytics
-    console.log('DISPLAY_MODE_LAUNCH:', displayMode);
-    console.log('DISPLAY_MODE_MATCH:', window.matchMedia('(display-mode: standalone)').matches ? 'standalone' : 'browser tab');
-    DotNet.invokeMethodAsync('BlazorAppWasmPWALottieRive', 'ShowHomeScreenRecommendation', true);
-});
-
+}
