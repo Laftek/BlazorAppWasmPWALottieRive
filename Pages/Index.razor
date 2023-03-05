@@ -50,7 +50,7 @@
                 </span>
                 @if (displayModeDetection is not null)
                 {
-                    <span>@displayModeDetection</span>
+                    <span>@displayModeDetection @isMobileDevice</span>
                 }
                 <UpdateAvailableDetector></UpdateAvailableDetector>
             </div>
@@ -60,6 +60,7 @@
 @code {
     public int lottieFileNumber { get; set; } = 1;
     private bool isHomeScreenRecommendationDisplayed = false;
+    private bool isMobileDevice = false;
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
     public string displayModeDetection { get; set; }
 
@@ -76,7 +77,10 @@
         {
             string pathTodetectionPWAJs = $"{navigationManager.BaseUri}/scripts/detectionPWA.js";
             jsWrapper = await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathTodetectionPWAJs);
+
             displayModeDetection = await jsWrapper.InvokeAsync<string>("checkDisplayMode");
+            isMobileDevice = await jsWrapper.InvokeAsync<bool>("isMobile");
+                       
             StateHasChanged();
 
             //await jsWrapper.InvokeVoidAsync("isStandalone");

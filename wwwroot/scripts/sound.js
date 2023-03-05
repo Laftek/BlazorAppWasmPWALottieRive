@@ -12,7 +12,8 @@ export function playAudio() {
     audio.play();
 }
 export function disposeAudio() {
-    if (audio && audio.parentNode) {
-        audio.parentNode.removeChild(audio);
+    if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
     }
 }

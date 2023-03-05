@@ -22,7 +22,7 @@
                     <br />
                 </span>
                 <audio id="audioElement" />
-                <button class="playing-button button" id="soundButton"  @onpointerup="PlaySound" disabled="@IsDisabled">NEXT ANIMATION</button>
+                <button class="playing-button button" id="soundButton" @onpointerup="PlaySound">NEXT ANIMATION</button>
             </div>
         </div>
     </div>
@@ -30,13 +30,21 @@
 @code {
     [Parameter]
     public int animNumber { get; set; } // Parameter used to store the current animation number
-    public bool IsDisabled { get; set; } = false; // Flag to indicate whether the component is disabled or not
+    public string IsDisabled { get; set; } = "disabled"; // Flag to indicate whether the component is disabled or not
     public int NumberOfLotties { get; set; } = 30; // Total number of Lottie animations, initialized to 7.
                                                    // TODO: This number should be loaded from the folder by reading the names of the animations
     public string lottieFolderName { get; set; } = "RandomLottieAnimations"; // Name of the folder where the animations are stored
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
     IJSObjectReference? jsDisableElasticScroll { get; set; } // Reference to the JavaScript wrapper
-                                                             // Go back to main page
+
+    //Disabling button
+    public async Task DisableButtonManually()
+    {
+
+        await Task.Delay(500);
+
+    }
+    // Go back to main page
     public async Task GoToMainPage()
     {
         await jsDisableElasticScroll.InvokeVoidAsync("enableElasticScroll");
@@ -56,14 +64,11 @@
             // Set the value of LottieAnimList to a range of numbers from 1 to NumberOfLotties
             numberingHelper.LottieAnimList = Enumerable.Range(1, NumberOfLotties);
         }
-        // Disable the component
-        IsDisabled = true;
+        
         // Invoke the playAudio method of the JavaScript wrapper
         await jsWrapper.InvokeVoidAsync("playAudio");
         // Wait for 1 second
-        await Task.Delay(500);
-        // Enable the component
-        IsDisabled = false;
+        //await Task.Delay(500);
         // Select a random animation number from the list of animation numbers
         Random rnd = new Random();
         int randomIndex = rnd.Next(numberingHelper.LottieAnimList.Count());
