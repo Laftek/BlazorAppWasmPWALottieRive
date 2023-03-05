@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-eIBNhQwvIfQb1PMbeNaKh5he5+h2L2JinIEq831OByE=",
+      "hash": "sha256-sp7ckb8IeV3nMK3AG3lZRjiPRk3CJ8sLwP5yBy3aDJg=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-0Xz7yhd+OrJ77MD3UEpax5vCii4lstBtenzB9FRldz0=",
+      "hash": "sha256-8nm29w1bf8DtJoFRlp4ze93Vj1jh1+lZR\/3WxQOTuSA=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -353,7 +353,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-Tcf6\/6\/5UvugOdZOiF2L\/Mtvb3AkhObstp4o+Xez0QY=",
+      "hash": "sha256-yzCHdxkZJKgABQksJeaRMUvnfw+W\/bvluFoQ0s\/U0+Q=",
       "url": "scripts\/detectionPWA.js"
     },
     {
@@ -365,7 +365,7 @@
       "url": "scripts\/lottie-player.js"
     },
     {
-      "hash": "sha256-VmbSkTbCGAZT\/s4MIuuZUd1kjYOUXcymy6rqVqe5ISM=",
+      "hash": "sha256-Nwxy0RWsqRDJTSp0Am6xpT6JW3cnvFiOpswgxFzr3Fg=",
       "url": "scripts\/sound.js"
     },
     {
@@ -377,5 +377,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "teIF91yy"
+  "version": "nh+QE44x"
 };

@@ -19,3 +19,18 @@
         return 'unknown';
     }
 }
+
+export function isMobile() {
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    console.log('Mobile device detected:', isMobileDevice);
+    return isMobileDevice;
+}
+
+if (isMobile()) {
+    console.log('Running code for mobile devices');
+    // Code for mobile devices
+} else {
+    console.log('Running code for desktop devices');
+    // Code for desktop devices
+}
+
