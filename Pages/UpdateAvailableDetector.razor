@@ -78,6 +78,18 @@
         }
 </style>
 @code {
+    [Parameter]
+    public bool newVersionAvailable
+    {
+        get
+        {
+            return _newVersionAvailable;
+        }
+        set
+        {
+            _newVersionAvailable = value;
+        }
+    }
     private bool _newVersionAvailable = false;
     protected override async Task OnInitializedAsync()
     {

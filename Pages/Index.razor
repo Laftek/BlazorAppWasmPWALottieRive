@@ -9,6 +9,7 @@
             <header data-role="Header" class="home-header max-width-container">
                 <span class="navbar-logo-title home-logo-center">ARTURIK</span>
             </header>
+                <UpdateAvailableDetector></UpdateAvailableDetector>
         </div>
         <div class="home-hero section-container">
             <div class="home-max-width max-width-container">
@@ -48,46 +49,44 @@
                 <span class="home-text10">
                     <a href="credit">Credit</a>
                 </span>
-                @if (displayModeDetection is not null)
-                {
-                    <span>@displayModeDetection @isMobileDevice</span>
-                }
-                <UpdateAvailableDetector></UpdateAvailableDetector>
             </div>
         </div>
+        @if (!isHomeScreenRecommendationDisplayed)
+        {
+        <div class="home-container-modal-docx">
+            <span class="home-text11">
+                For best experience to use this PWA app, please install the app
+            </span>
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+                <path d="M877.254 621.254l-320 320c-24.992 24.994-65.514 24.994-90.508 0l-320-320c-24.994-24.994-24.994-65.516 0-90.51 24.994-24.996 65.516-24.996 90.51 0l210.744 210.746v-613.49c0-35.346 28.654-64 64-64s64 28.654 64 64v613.49l210.746-210.746c12.496-12.496 28.876-18.744 45.254-18.744s32.758 6.248 45.254 18.746c24.994 24.994 24.994 65.514 0 90.508z"></path>
+            </svg>
+            <div class="home-container2">
+                <span class="home-text12">Add to home screen</span>
+                <svg viewBox="0 0 1024 1024" class="home-icon2">
+                    <path d="M213.333 85.333c-35.328 0-67.413 14.379-90.496 37.504s-37.504 55.168-37.504 90.496v597.333c0 35.328 14.379 67.413 37.504 90.496s55.168 37.504 90.496 37.504h597.333c35.328 0 67.413-14.379 90.496-37.504s37.504-55.168 37.504-90.496v-597.333c0-35.328-14.379-67.413-37.504-90.496s-55.168-37.504-90.496-37.504zM213.333 170.667h597.333c11.776 0 22.4 4.736 30.165 12.501s12.501 18.389 12.501 30.165v597.333c0 11.776-4.736 22.4-12.501 30.165s-18.389 12.501-30.165 12.501h-597.333c-11.776 0-22.4-4.736-30.165-12.501s-12.501-18.389-12.501-30.165v-597.333c0-11.776 4.736-22.4 12.501-30.165s18.389-12.501 30.165-12.501zM341.333 554.667h128v128c0 23.552 19.115 42.667 42.667 42.667s42.667-19.115 42.667-42.667v-128h128c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-128v-128c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v128h-128c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
+                </svg>
+            </div>
+            <svg @onclick="CloseModalWindows" viewBox="0 0 1024 1024" class="home-icon4">
+                <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
+            </svg>
+        </div>
+                    }
     </div>
 </div>
 @code {
     public int lottieFileNumber { get; set; } = 1;
-    private bool isHomeScreenRecommendationDisplayed = false;
-    private bool isMobileDevice = false;
+    private bool isHomeScreenRecommendationDisplayed = true;
+    private bool isMobileDevice = false; // not being used but I didnt delete it in the case its needed
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
-    public string displayModeDetection { get; set; }
-
-
-    //[JSInvokable]
-    //public static void ShowHomeScreenRecommendation(bool isStandalone)
-    //{
-    //    isHomeScreenRecommendationDisplayed = isStandalone;
-    //}
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             string pathTodetectionPWAJs = $"{navigationManager.BaseUri}/scripts/detectionPWA.js";
             jsWrapper = await JSRuntime.InvokeAsync<IJSObjectReference>("import", pathTodetectionPWAJs);
-
-            displayModeDetection = await jsWrapper.InvokeAsync<string>("checkDisplayMode");
-            isMobileDevice = await jsWrapper.InvokeAsync<bool>("isMobile");
-                       
+            isHomeScreenRecommendationDisplayed = await jsWrapper.InvokeAsync<bool>("checkDisplayMode");
+            isMobileDevice = await jsWrapper.InvokeAsync<bool>("isNotDesktop");
             StateHasChanged();
-
-            //await jsWrapper.InvokeVoidAsync("isStandalone");
-            //isHomeScreenRecommendationDisplayed = await jsWrapper.InvokeAsync<bool>("isStandalone");
-
-            //await jsWrapper.InvokeVoidAsync("detectionPWA");
-
         }
     }
     protected override void OnInitialized()
@@ -96,6 +95,10 @@
         numberingHelper.NumberOfAnimationPlayed = 1;
         // initialize the MaxLimit with value 0
         numberingHelper.MaxLimit = 0;
+    }
+    private void CloseModalWindows()
+    {
+        isHomeScreenRecommendationDisplayed = true;
     }
     public void NavigateToNextAnimation(bool input)
     {

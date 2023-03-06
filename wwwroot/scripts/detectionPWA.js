@@ -1,36 +1,33 @@
 ﻿export function checkDisplayMode() {
     if (window.matchMedia('(display-mode: standalone)').matches) {
         console.log('Standalone mode');
-        return 'standalone';
+        return true;
     } else if (window.matchMedia('(display-mode: minimal-ui)').matches) {
         console.log('Minimal UI mode');
-        return 'minimal-ui';
+        return false;
     } else if (window.matchMedia('(display-mode: fullscreen)').matches) {
         console.log('Fullscreen mode');
-        return 'fullscreen';
+        return false;
     } else if (window.matchMedia('(display-mode: browser)').matches) {
         console.log('Browser mode');
-        return 'browser';
-    } else if (window.matchMedia('(display-mode: browser tab)').matches) {
+        return false;
+            } else if (window.matchMedia('(display-mode: browser tab)').matches) {
         console.log('Browser tab mode');
-        return 'browser tab';
+        return false;
     } else {
         console.log('Unknown mode');
-        return 'unknown';
+        return false;
     }
 }
-
-export function isMobile() {
+export function isNotDesktop() {
     const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     console.log('Mobile device detected:', isMobileDevice);
     return isMobileDevice;
 }
-
-if (isMobile()) {
+if (isNotDesktop()) {
     console.log('Running code for mobile devices');
     // Code for mobile devices
 } else {
     console.log('Running code for desktop devices');
     // Code for desktop devices
 }
-

@@ -30,19 +30,15 @@
 @code {
     [Parameter]
     public int animNumber { get; set; } // Parameter used to store the current animation number
-    public string IsDisabled { get; set; } = "disabled"; // Flag to indicate whether the component is disabled or not
     public int NumberOfLotties { get; set; } = 30; // Total number of Lottie animations, initialized to 7.
                                                    // TODO: This number should be loaded from the folder by reading the names of the animations
     public string lottieFolderName { get; set; } = "RandomLottieAnimations"; // Name of the folder where the animations are stored
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
     IJSObjectReference? jsDisableElasticScroll { get; set; } // Reference to the JavaScript wrapper
-
     //Disabling button
     public async Task DisableButtonManually()
     {
-
         await Task.Delay(500);
-
     }
     // Go back to main page
     public async Task GoToMainPage()
@@ -64,7 +60,6 @@
             // Set the value of LottieAnimList to a range of numbers from 1 to NumberOfLotties
             numberingHelper.LottieAnimList = Enumerable.Range(1, NumberOfLotties);
         }
-        
         // Invoke the playAudio method of the JavaScript wrapper
         await jsWrapper.InvokeVoidAsync("playAudio");
         // Wait for 1 second
