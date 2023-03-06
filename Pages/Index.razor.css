@@ -6,6 +6,7 @@
     align-items: center;
     padding-top: 70px;
     flex-direction: column;
+    background-color: var(--dl-color-pallet-green);
 }
 .home-navbar {
     top: 0;
@@ -178,9 +179,7 @@
     width: var(--dl-size-size-small);
     height: var(--dl-size-size-small);
 }
-.home-container-modal-docx {
-    display: flex;
-}
+
 @media(max-width: 991px) {
     .home-hero1 {
         flex-direction: column;
@@ -193,6 +192,9 @@
     }
     .home-text05 {
         text-align: center;
+    }
+    .home-container-modal-docx {
+        display: flex;
     }
 }
 @media(max-width: 767px) {
