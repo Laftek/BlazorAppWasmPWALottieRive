@@ -149,7 +149,7 @@
       "url": "_framework\/System.Text.Json.dll"
     },
     {
-      "hash": "sha256-GR35cWjo+h0b9kVkySOKETwUzhp7rgvwuzZZYTH3V6I=",
+      "hash": "sha256-ZF1zhvRo7oNyudktLBXDKPIfb6S94ycogTMNL\/7UeyQ=",
       "url": "BlazorAppWasmPWALottieRive.styles.css"
     },
     {
@@ -377,5 +377,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "OeyUPEpX"
+  "version": "VaYH8r96"
 };
