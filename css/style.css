@@ -30,6 +30,13 @@
     --dl-space-space-threeunits: 48px;
     --dl-space-space-oneandhalfunits: 24px;
 }
+@font-face {
+    font-family: 'Jost';
+    src: url('./fonts/jost-variablefont_wght-webfont.woff2') format('woff2'), url('./fonts/jost-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+s
 .button {
     color: var(--dl-color-gray-black80);
     cursor: pointer;
