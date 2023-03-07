@@ -4,7 +4,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 .loader-container {
     width: 100%;
     display: flex;
@@ -64,4 +63,3 @@
         align-self: center;
     }
 }
-

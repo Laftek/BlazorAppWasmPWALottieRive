@@ -1,4 +1,5 @@
 ﻿@page "/credit"
+@inject NavigationManager navigationManager
 <div class="credit-container">
     <div class="credit-container1">
         <div class="credit-navbar">
@@ -8,6 +9,9 @@
                     <span>CREDITS</span>
                     <span class="credit-text001">(thank you)</span>
                 </span>
+                <svg viewBox="0 0 1024 1024" class="credit-icon" @onclick="@(() => navigationManager.NavigateTo(navigationManager.BaseUri))">
+                    <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
+                </svg>
             </header>
         </div>
         <div class="credit-hero section-container">
