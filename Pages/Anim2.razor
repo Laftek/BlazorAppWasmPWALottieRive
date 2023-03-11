@@ -74,12 +74,14 @@
         // navigate to the root page
         if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
         {
+            await Task.Delay(800);
             await GoToMainPage();
         }
         else
         {
             // Otherwise, navigate to the next animation
             navigationManager.NavigateTo($"{lottieFolderName}/{animNumber}");
+            await Task.Delay(800);
             await jsWrapper.InvokeVoidAsync("loadAudio");
         }
     }
