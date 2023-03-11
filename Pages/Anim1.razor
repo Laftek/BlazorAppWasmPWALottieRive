@@ -87,7 +87,7 @@
         {
             // Otherwise, navigate to the next animation
             navigationManager.NavigateTo($"{lottieFolderName}/{animNumber}");
-            await Task.Delay(8000);
+            await Task.Delay(800);
             await jsWrapper.InvokeVoidAsync("loadAudio");
         }
     }

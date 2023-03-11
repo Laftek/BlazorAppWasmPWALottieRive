@@ -57,7 +57,7 @@
         // Invoke the playAudio method of the JavaScript wrapper
         await jsWrapper.InvokeVoidAsync("playAudio");
         // Wait for 1 second
-        await Task.Delay(300);
+        //await Task.Delay(300);
         // Select a random animation number from the list of animation numbers
         Random rnd = new Random();
         int randomIndex = rnd.Next(numberingHelper.LottieAnimList.Count());
