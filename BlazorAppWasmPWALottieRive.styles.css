@@ -126,6 +126,9 @@
             border-bottom-width: 2px;
             margin-top: 4px;
         }
+    .button-disable[b-ut6sh94stz] {
+        pointer-events: none;
+    }
 }
 /* /Pages/Anim2.razor.rz.scp.css */
 /*Copyright 2020 The Jost Project Authors (https://github.com/indestructible-type/Jost)*/
@@ -261,6 +264,10 @@
             border-bottom-width: 2px;
             margin-top: 4px;
         }
+    .button-disable[b-bxncxxn6qa] {
+        pointer-events: none;
+    }
+}
 }
 /* /Pages/Credit.razor.rz.scp.css */
 /*Copyright 2020 The Jost Project Authors (https://github.com/indestructible-type/Jost)*/

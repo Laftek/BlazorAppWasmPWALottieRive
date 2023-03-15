@@ -33,11 +33,11 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-3gZiOwGNNbOgPgmON\/UbPjb+SdB+qRv3TB5XoHdqjbY=",
+      "hash": "sha256-cwB+i3o\/swbfghRDH48trOyrnekXEDyyJ6tDzBqrxjc=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-ehowerCzL7dlu64nnlj42T3daQ4UfN\/dt930izaxHOQ=",
+      "hash": "sha256-L0XhERJRuEJ40DrAzIrUbdyJqKxK6rzWskF+\/H0NWJc=",
       "url": "_framework\/BlazorAppWasmPWALottieRive.dll"
     },
     {
@@ -149,7 +149,7 @@
       "url": "_framework\/System.Text.Json.dll"
     },
     {
-      "hash": "sha256-c0H+HJM0CpACedFHyoV1HekqzuAvayaLgMKAPQuTv3w=",
+      "hash": "sha256-f\/IRB7yP9BIz\/QTXkyndghDZVU5vigWVyHHJbM2P\/cw=",
       "url": "BlazorAppWasmPWALottieRive.styles.css"
     },
     {
@@ -165,7 +165,7 @@
       "url": "css\/style.css"
     },
     {
-      "hash": "sha256-EQs4T2qty86aFgx05yijfhT2ZCMQmjhiQGoFg7iR1Y0=",
+      "hash": "sha256-PDy4jlva+x35P9FwCQna2Jq\/DikoXaS32DV1ZE6yM58=",
       "url": "favicon.ico"
     },
     {
@@ -177,11 +177,11 @@
       "url": "fonts\/jost-variablefont_wght-webfont.woff2"
     },
     {
-      "hash": "sha256-tfcQayeGO3VauWN0QxM2rDD83oDBYtCncLWgLhVZqw0=",
+      "hash": "sha256-zkD8yL\/SrsfbPKe9XrHcDpR+tY9Nmkuipv97Fz0w13o=",
       "url": "icon-192.png"
     },
     {
-      "hash": "sha256-v3XknUpv46yvq+BanWzzmH+6N2bn+1TwRaEVqqKX7yY=",
+      "hash": "sha256-9NGn3jw5NcaogveyQpA50NtHJV9gFs1TQWSrfmVKO8k=",
       "url": "icon-512.png"
     },
     {
@@ -373,5 +373,5 @@
       "url": "sw-registrator.js"
     }
   ],
-  "version": "nB0QDOnt"
+  "version": "YAsC5ADF"
 };
