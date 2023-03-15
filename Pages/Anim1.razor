@@ -36,7 +36,7 @@
     public string buttonDisableClass { get; set; } = "";
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
     IJSObjectReference? jsDisableElasticScroll { get; set; } // Reference to the JavaScript wrapper
-    // Go back to main page
+                                                             // Go back to main page
     public async Task GoToMainPage()
     {
         await jsDisableElasticScroll.InvokeVoidAsync("enableElasticScroll");
@@ -48,6 +48,7 @@
     // Method to play the sound of the current animation
     public async Task PlaySound()
     {
+        buttonDisableClass = "button-disable";
         // Remove the current animation number from the list of animation numbers
         numberingHelper.LottieAnimList = numberingHelper.LottieAnimList.Where(x => x != animNumber).ToList();
         // Check if the count of items in LottieAnimList is less than or equal to 1
@@ -76,7 +77,6 @@
         // navigate to the root page
         if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
         {
-            buttonDisableClass = "button-disable";
             await Task.Delay(800);
             await GoToMainPage();
         }
@@ -84,7 +84,6 @@
         {
             // Otherwise, navigate to the next animation
             navigationManager.NavigateTo($"{lottieFolderName}/{animNumber}");
-            buttonDisableClass = "button-disable";
             await Task.Delay(800);
             buttonDisableClass = "";
             await jsWrapper.InvokeVoidAsync("loadAudio");
