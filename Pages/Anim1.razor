@@ -22,7 +22,7 @@
                     <br />
                 </span>
                 <audio id="audioElement" />
-                <button class="playing-button button" id="soundButton" @onpointerup="PlaySound">NEXT ANIMATION</button>
+                <button class="playing-button button @buttonDisableClass" id="soundButton" @onpointerup="PlaySound">NEXT ANIMATION</button>
             </div>
         </div>
     </div>
@@ -33,13 +33,9 @@
     public int NumberOfLotties { get; set; } = 30; // Total number of Lottie animations, initialized to 7.
                                                    // TODO: This number should be loaded from the folder by reading the names of the animations
     public string lottieFolderName { get; set; } = "RandomLottieAnimations"; // Name of the folder where the animations are stored
+    public string buttonDisableClass { get; set; } = "";
     IJSObjectReference? jsWrapper { get; set; } // Reference to the JavaScript wrapper
     IJSObjectReference? jsDisableElasticScroll { get; set; } // Reference to the JavaScript wrapper
-    //Disabling button
-    public async Task DisableButtonManually()
-    {
-        await Task.Delay(500);
-    }
     // Go back to main page
     public async Task GoToMainPage()
     {
@@ -80,6 +76,7 @@
         // navigate to the root page
         if (numberingHelper.NumberOfAnimationPlayed - 1 > numberingHelper.MaxLimit)
         {
+            buttonDisableClass = "button-disable";
             await Task.Delay(800);
             await GoToMainPage();
         }
@@ -87,7 +84,9 @@
         {
             // Otherwise, navigate to the next animation
             navigationManager.NavigateTo($"{lottieFolderName}/{animNumber}");
+            buttonDisableClass = "button-disable";
             await Task.Delay(800);
+            buttonDisableClass = "";
             await jsWrapper.InvokeVoidAsync("loadAudio");
         }
     }
