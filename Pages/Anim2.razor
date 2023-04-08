@@ -13,6 +13,11 @@
                 </svg>
             </div>
             <div class="playing-max-width max-width-container">
+                <div @onclick="GoToMainPage" class="playing-back-desktop">
+                    <svg viewBox="0 0 1024 1024" class="playing-icon2">
+                        <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
+                    </svg>
+                </div>
                 <lottie-player style="width: 300px; height: 300px;" @key=animNumber src="@navigationManager.BaseUri/lottie/@lottieFolderName/(@animNumber).json" speed="1" loop autoplay></lottie-player>
             </div>
             <div class="ContainernextAnimationButton playing-container2">
